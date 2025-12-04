@@ -6,41 +6,105 @@
 <title>St. Francis School</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <style>
+/* ---------- GLOBAL STYLING ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
 .principal-img, .viceprincipal-img {
-width: 200px;
-height: 200px;
-object-fit: cover;
-border-radius: 50%;
-border: 4px solid #0d6efd;
-}
-.section-title {
-font-weight: 700;
-margin-bottom: 40px;
-}
-.footer {
-background: #0d6efd;
-color: white;
-padding: 40px 0;
-}
-.logo {
-  width: 60%;
-  height: 50%;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  
+  border-radius: 50%;
+  border: 4px solid #0d6efd;
+  transition: transform .3s ease;
 }
+.principal-img:hover, .viceprincipal-img:hover {
+  transform: scale(1.05);
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer {
+  background: #0d6efd;
+  color: white;
+  padding: 40px 0;
+}
+
+.logo {
+  width: 180px; /* Larger logo on desktop */
+  height: auto;
+  object-fit: fill;
+  transition: transform .3s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Floating Back-to-Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+#backToTop:hover {
+  background: #084298;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .logo {
+    width: 110px; /* Mobile size */
+  }
+  .principal-img, .viceprincipal-img {
+    width: 150px;
+    height: 150px;
+  }
+  .bg-danger {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+  .principal-img, .viceprincipal-img {
+    width: 150px;
+    height: 150px;
+  }
+  .bg-danger {
+    font-size: 14px;
+    padding: 8px;
+  }
+
 </style>
 </head>
 <body>
-    <div class="bg-dark text-white text-center py-2 fw-bold">
-        🚨 LKG Admission Open for 2026-27  Contact Office for Details or Apply online
-        <a class="btn btn-light fw-semibold ms-lg-3" target="_blank" href="https://sfsvdy.edisapp.net/OnlineAdmission/Applicant/index">Register Here</a>
-    </div>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-<a class="navbar-brand fw-bold d-flex align-items-center mx-auto" href="#">
-<img src="./assets/img/logo2.png" alt="Logo" class="logo" />
-<!-- <span>St. Francis School</span> -->
-</a>
+
+<!-- 🔔 NEWS BAR -->
+<div class="bg-danger text-white text-center py-2 fw-bold">
+  ⚠️ LKG Admission Open for 2026-27 — Contact Office for Details
+  <a class="btn btn-light fw-semibold ms-lg-3" target="_blank" href="https://sfsvdy.edisapp.net/OnlineAdmission/Applicant/index">Register Here</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary px-3 sticky-top shadow">
+<a class="navbar-brand fw-bold d-flex align-items-center" href="#"></a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 <span class="navbar-toggler-icon"></span>
 </button>
@@ -57,120 +121,123 @@ padding: 40px 0;
 </div>
 </nav>
 
-  <!-- Carousel -->
-  <div id="schoolCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="./assets/img/1.JPG" class="d-block w-100" />
-      </div>
-      <div class="carousel-item">
-        <img src="./assets/img/2.JPG" class="d-block w-100" />
-      </div>
-      <div class="carousel-item">
-        <img src="./assets/img/3.JPG" class="d-block w-100" />
-      </div>
-      <div class="carousel-item">
-        <img src="./assets/img/4.JPG" class="d-block w-100" />
-      </div>
+<!-- Centered Logo Section -->
+<div class="w-100 bg-primary text-center py-3">
+  <img src="./assets/img/logo2.png" class="logo" alt="School Logo" style="width:250px; height:auto;">
+</div>
+
+<!-- CAROUSEL WITH FADE EFFECT -->
+<div id="schoolCarousel" class="carousel slide " data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="./assets/img/1.JPG" class="d-block w-100" />
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#schoolCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#schoolCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
+    <div class="carousel-item">
+      <img src="./assets/img/2.JPG" class="d-block w-100" />
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/img/3.JPG" class="d-block w-100" />
+    </div>
+    <div class="carousel-item">
+      <img src="./assets/img/4.JPG" class="d-block w-100" />
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="container py-5 text-center">
+<h2 class="section-title">About Our School</h2>
+<p class="lead">St. Francis School is committed to academic excellence and holistic child development.</p>
+<p class="lead">St. Francis School, Vadakkencherry is an English Medium co-educational school conducted by the Franciscan Fathers and Brothers (T.O.R.).</p>
+</section>
+
+<!-- PRINCIPAL SECTION -->
+<section id="principal" class="container py-5 text-center">
+<h2 class="section-title">Our Principal</h2>
+<img src="./assets/img/princi.jpg" class="principal-img" />
+<h4 class="mt-3 fw-semibold">Fr. Joby Varghese T.O.R</h4>
+<p class="text-muted">Principal</p>
+</section>
+
+<!-- VICE PRINCIPAL SECTION -->
+<section class="container py-5 text-center">
+<h2 class="section-title">Vice Principal</h2>
+<img src="./assets/img/vice.jpg" class="viceprincipal-img" />
+<h4 class="mt-3 fw-semibold">Fr. Jitto Joy T.O.R</h4>
+<p class="text-muted">Vice Principal</p>
+</section>
+
+<!-- GALLERY SECTION -->
+<section id="gallery" class="container py-5">
+  <h2 class="section-title text-center">Gallery</h2>
+
+  <div class="row g-4" id="galleryPreview">
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal1.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal2.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal3.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal4.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal5.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal6.JPG" /></div>
+
+    <div class="col-md-4 position-relative">
+      <img class="img-fluid rounded shadow" src="./assets/img/gal7.JPG" />
+      <a href="#" id="viewMore" class="btn btn-primary position-absolute top-50 start-50 translate-middle">View More</a>
+    </div>
   </div>
 
- <!-- About Section -->
-<section id="about" class="container py-5 text-center">
-    <h2 class="section-title">About Our School</h2>
-    <p class="lead">St. Francis School is committed to academic excellence and holistic child development. With modern facilities, dedicated teachers, and strong values, we prepare students to excel in academics, creativity, sports, and life.</p>
-    <p class="lead">St.Francis School,Vadakkencherry is an English Medium co-educational school conducted by the Franciscan Fathers and Brothers who are members of the Third Order Regular (T.O.R.) of St.Francis of Assisi, after whom the school is named. Our Education Ministry is to spread the love of God in the hearts of all people, in the spirit of St. Francis of Assisi, by imparting the values of human dignity, universal brotherhood, equality and justice.</p>
-    </section>
-    
-    
-    <!-- Principal Section -->
-    <section id="principal" class="container py-5">
-    <h2 class="section-title text-center">Our Principal</h2>
-    <div class="text-center">
-    <img src="./assets/img/princi.jpg" class="principal-img" />
-    <h4 class="mt-3 fw-semibold">Fr. Joby Varghese T.O.R</h4>
-    <p class="text-muted">Principal</p>
-    </div>
-    </section>
-    
-    
-    <!-- Vice Principal Section -->
-    <section class="container py-5">
-    <h2 class="section-title text-center">Vice Principal</h2>
-    <div class="text-center">
-    <img src="./assets/img/vice.jpg" class="viceprincipal-img" />
-    <h4 class="mt-3 fw-semibold">Fr. Jitto Joy T.O.R</h4>
-    <p class="text-muted">Vice Principal</p>
-    </div>
-    </section>
-    
-    
-    <!-- Gallery Section -->
-<section id="gallery" class="container py-5">
-    <h2 class="section-title text-center">Gallery</h2>
-    <div class="row g-4" id="galleryPreview">
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal1.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal2.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal3.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal4.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal5.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal6.JPG" /></div>
-    <div class="col-md-4 position-relative">
-    <img class="img-fluid rounded" src="./assets/img/gal7.JPG" />
-    <a href="#" id="viewMore" class="btn btn-primary position-absolute top-50 start-50 translate-middle">View More</a>
-    </div>
-    </div>
-    
-    
-    <!-- Hidden Full Gallery -->
-    <div class="row g-4 mt-4 d-none" id="fullGallery">
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal8.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal9.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal10.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal11.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal12.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal13.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal14.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal15.JPG" /></div>
-    <div class="col-md-4"><img class="img-fluid rounded" src="./assets/img/gal16.JPG" /></div>
-    </div>
-    </section>
-    
-    
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const viewMoreBtn = document.getElementById('viewMore');
-    const fullGallery = document.getElementById('fullGallery');
-    
-    
-    viewMoreBtn.addEventListener('click', function (e) {
+  <!-- Hidden Gallery -->
+  <div class="row g-4 mt-4 d-none" id="fullGallery">
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal8.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal9.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal10.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal11.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal12.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal13.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal14.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal15.JPG" /></div>
+    <div class="col-md-4"><img class="img-fluid rounded shadow" src="./assets/img/gal16.JPG" /></div>
+  </div>
+</section>
+
+<!-- GALLERY SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const viewMore = document.getElementById("viewMore");
+  const fullGallery = document.getElementById("fullGallery");
+
+  viewMore.addEventListener("click", function(e){
     e.preventDefault();
-    fullGallery.classList.remove('d-none');
-    viewMoreBtn.style.display = 'none';
-    });
-    });
-    </script>
-    <!-- Contact Section -->
-    <section id="contact" class="container py-5 text-center">
-    <h2 class="section-title">Contact Us</h2>
-    <p class="lead">📍 Address: St. Francis School, Vadakkencherry, 678683, Palakkad, Kerala, India</p>
-    <p class="lead">📞 Phone: +91 8111948679</p>
-    <p class="lead">✉️ Email: sfsoff@gmail.com</p>
-    </section>
-    
-    
-    <!-- Footer -->
-    <footer class="footer text-center">
-    <p class="mb-0">© 2025 St. Francis School. All Rights Reserved.</p>
-    </footer>
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
+    fullGallery.classList.remove("d-none");
+    viewMore.style.display = "none";
+  });
+});
+</script>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="container py-5 text-center">
+<h2 class="section-title">Contact Us</h2>
+<p class="lead">📍 St. Francis School, Vadakkencherry, Palakkad, Kerala</p>
+<p class="lead">📞 +91 8111948679</p>
+<p class="lead">✉️ sfsoff@gmail.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer text-center">
+<a class="nav-link text-white" href="#">Home</a>
+<p class="mb-0">© 2025 St. Francis School. All Rights Reserved.</p>
+<p class="mb-0">Developed by Daniel.</p>
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop">↑</button>
+<script>
+const btn = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  btn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+btn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
